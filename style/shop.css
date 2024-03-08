@@ -1,0 +1,85 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+#brand {
+    background-color: #f3f3f3;
+    background-image: url(../assets/mtb-29.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 20vh;
+    justify-content: end;
+    display: flex;
+}
+
+#button-home {
+    background-color: yellow;
+    width: 100px;
+    height: 25px;
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: medium;
+    font-family: 'Times New Roman'
+}
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.cart {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.cart th,
+.cart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.cart th {
+    background-color: #f2f2f2;
+}
+
+.cart tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.cart tr:hover {
+    background-color: #ddd;
+}
+
+.total {
+    text-align: right;
+}
+
+#cantidad {
+    margin-top: 10px;
+}
+
+#cantidad label {
+    display: block;
+    margin-bottom: 5px;
+}
