@@ -62,9 +62,13 @@ function addToCart(productName, price, inputId) {
     // Obtiene la cantidad del input
     if (quantity <= 0) {
         // Verifica si la cantidad es válida
+        alert("La cantidad debe ser mayor que cero.");   
+        return;
+    } 
+        // Verifica si la cantidad es válida
         alert("La cantidad debe ser mayor que cero.");
         return;
-    }
+     }
     carrito.push({ name: productName, price: price, quantity: quantity });
     // Agrega el producto al carrito la funcion la tenemos mas abajo
     updateCart();
@@ -93,11 +97,14 @@ function updateCart() {
                         <td>$${item.price.toFixed(2)}</td>
                         <td>${item.quantity}</td>
                         <td>$${subtotal.toFixed(2)}</td>
+                        
                     </tr>
+                    
                 `;
         // Agrega una fila para mostrar el producto en el carrito
     });
     document.getElementById("total").textContent = "$" + total.toFixed(2);
+    location.reload(true);
     // Actualiza el total del carrito en la página
 }
 
