@@ -65,21 +65,18 @@ function addToCart(productName, price, inputId) {
         alert("La cantidad debe ser mayor que cero.");   
         return;
     } 
-        // Verifica si la cantidad es válida
-        alert("La cantidad debe ser mayor que cero.");
-        return;
-     }
+        
     carrito.push({ name: productName, price: price, quantity: quantity });
-    // Agrega el producto al carrito la funcion la tenemos mas abajo
+    // Agrega el producto al carrito
     updateCart();
-    // Actualiza el carrito la funcion la tenemos mas abajo
+    // Actualiza el carrito
     updateProductQuantity(inputId);
-    // Actualiza la cantidad restante del producto la funcion la tenemos mas abajo
+    
 }
-
 // Función para actualizar el carrito
 function updateCart() {
     let cartItems = document.getElementById("cart");
+    let cartTotal = document.getElementById("totalcarrito");
     // Selecciona el elemento donde se mostrarán los productos en el carrito
     cartItems.innerHTML = "";
     // Limpia el contenido actual del carrito
@@ -90,21 +87,29 @@ function updateCart() {
         let subtotal = item.price * item.quantity;
         // Calcula el subtotal del producto
         total += subtotal;
+        
         // Actualiza el total del carrito
         cartItems.innerHTML += `
+        
                     <tr>
                         <td>${item.name}</td>
                         <td>$${item.price.toFixed(2)}</td>
                         <td>${item.quantity}</td>
                         <td>$${subtotal.toFixed(2)}</td>
+                    
                         
                     </tr>
+                   
+
                     
                 `;
         // Agrega una fila para mostrar el producto en el carrito
     });
-    document.getElementById("total").textContent = "$" + total.toFixed(2);
-    location.reload(true);
+    cartTotal.innerHTML = total.toFixed(2)
+
+    console.log(total)
+    
+
     // Actualiza el total del carrito en la página
 }
 
@@ -120,13 +125,13 @@ function updateProductQuantity(inputId) {
 }
 
 // Función para actualizar la interfaz de usuario
-function actualizarInterfaz() {
+/* function actualizarInterfaz() {
     let numProductosEnCarrito = carrito.length;
-    let carritoElement = document.getElementById('total');
+    let carritoElement = document.getElementById('total'); */
 
     // Actualizar la visualización del carrito
-    carritoElement.textContent = `cart (${numProductosEnCarrito})`;
-}
+/*     carritoElement.textContent = `cart (${numProductosEnCarrito})`;
+} */
 
 // Llama a la función para mostrar el producto cuando se cargue la página
 /* window.onload = function () {
