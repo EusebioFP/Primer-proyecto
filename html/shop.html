@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de bicis</title>
     <link rel="stylesheet" href="../style/shop.css">
+    
 </head>
 <body>
     <header id="brand">
@@ -18,42 +19,42 @@
         <div class="product">
             <h3>Producto 1</h3>
             <p>Precio: $20.00</p>
-            <div id="cantidad">
+            <div id="cantidad1">
                 <label for="quantity">Cantidad:</label>
-                <input type="number" id="quantity" name="quantity" value="1"> <br>
-            <button>Agregar al Carrito</button>
+                <input type="number" id="quantity1" name="quantity" value="1"> <br>
+            <button onclick="addToCart('Producto 1', 20, 'quantity1')">Agregar al Carrito</button>
             </div>
         </div>
         <div class="product">
             <h3>Producto 2</h3>
             <p>Precio: $15.00</p>
-            <div id="cantidad">
+            <div id="cantidad2">
                 <label for="quantity">Cantidad:</label>
-                <input type="number" id="quantity" name="quantity" value="1"> <br>
-            <button>Agregar al Carrito</button>
+                <input type="number" id="quantity2" name="quantity" value="1"> <br>
+            <button onclick="addToCart('Producto 2', 15, 'quantity2')">Agregar al Carrito</button>
             </div>
         </div>
         <div class="product">
             <h3>Producto 3</h3>
             <p>Precio: $25.00</p>
-            <div id="cantidad">
+            <div id="cantidad3">
                 <label for="quantity">Cantidad:</label>
-                <input type="number" id="quantity" name="quantity" value="1"> <br>
-            <button>Agregar al Carrito</button>
+                <input type="number" id="quantity3" name="quantity" value="1"> <br>
+            <button onclick="addToCart('Producto 3', 25, 'quantity3')">Agregar al Carrito</button>
             </div>
         </div>
         <div class="product">
             <h3>Producto 4</h3>
             <p>Precio: $30.00</p>
-            <div id="cantidad">
+            <div id="cantidad4">
                 <label for="quantity">Cantidad:</label>
-                <input type="number" id="quantity" name="quantity" value="1"> <br>
-            <button>Agregar al Carrito</button>
+                <input type="number" id="quantity4" name="quantity" value="1"> <br>
+            <button onclick="addToCart('Producto 4', 30, 'quantity4')">Agregar al Carrito</button>
         </div>
     </div>
 </div>
         <h1>Carrito de Compra</h1>
-        <table class="cart">
+        <table class="cart" id="cart">
             <thead>
                 <tr>
                     <th>Producto</th>
@@ -79,10 +80,11 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3" class="total">Total</td>
+                    <td colspan="3" class="total" id="total">Total</td>
                     <td>$55.00</td>
                 </tr>
             </tfoot>
         </table>
+    <script src="../src/shop.js"></script>
 </body>
 </html>
