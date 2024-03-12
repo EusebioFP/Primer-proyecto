@@ -126,31 +126,31 @@ function updateCart() {
     cartItems.innerHTML = "";
     // Limpia el contenido actual del carrito
     let total = 0;
-    // Inicializa el total del carrito
-    carrito.forEach((item , index) => {
+
+
+    carrito.forEach((item, index) => {
         // Itera sobre los productos en el carrito
         let subtotal = item.price * item.quantity;
         // Calcula el subtotal del producto
         total += subtotal;
-        
+
+        let cantidadId = `cantidad${index}`;
+
         // Actualiza el total del carrito
-        cartItems.innerHTML += `
-                    <tr>
-                        <td>${item.name}</td>
-                        <td>${item.talla}</td>
-                        <td>${item.price.toFixed(2)} €</td>
-                        <td>${item.quantity}</td>
-                        <td>${subtotal.toFixed(2)} €</td>
-                        <td><button onclick="removeFromCart(${index})">Eliminar</button></td>
-                    </tr>
-                `;
-        // Agrega una fila para mostrar el producto en el carrito
+        cartItems.innerHTML +=
+            `<tr>
+                <td>${item.name}</td>
+                <td>${item.talla}</td>
+                <td>${item.price.toFixed(2)} €</td>
+                <td id="${cantidadId}">${item.quantity}</td>
+                <td>${subtotal.toFixed(2)} €</td>
+                <td><button onclick="removeFromCart(${index})">Eliminar</button></td>
+            </tr>`
+            ;
     });
-    cartTotal.innerHTML = 'Total: €' + total.toFixed(2)
-    console.log(total)
 
-    
-
+    cartTotal.innerHTML = 'Total: €' + total.toFixed(2);
+    console.log(total);
 }
     
     // Actualiza el total del carrito en la página
@@ -193,9 +193,19 @@ function updateProductQuantity(inputId) {
 
 
 // Función para eliminar un producto del carrito
-function removeFromCart(index) {
+    function removeFromCart(index) {
+        carrito[index].quantity--;
+
+        let cantidadId = `cantidad${index}`;
+
+        updateProductQuantity(cantidadId);
+
+        if (carrito[index].quantity === 0) {
+            carrito.splice(index, 1);
+        }
+
+        updateCart();
+    }
     // Elimina el producto del carrito en la posición del índice especificado
-    carrito.splice(index, 1);
-    // Actualiza el carrito después de eliminar el producto
-    updateCart();
-}
+/*     carrito.splice(index, 1);
+ */    // Actualiza el carrito después de eliminar el producto
