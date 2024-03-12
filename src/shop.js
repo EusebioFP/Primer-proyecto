@@ -65,24 +65,7 @@ let producto6 = {
 // Array para almacenar productos en el carrito
 let carrito = [];
 
-// Función para mostrar el producto en el DOM, tener en cuenta que los productos ya estan en el 
-//html de forma estatica por lo que esta funcion no seria necesaria en principio
-/* function mostrarProducto(producto) {
-    let productoContainer = document.getElementsByClassName("catalog");
 
-    let productoHTML = `
-    <div class="product">
-      <h2>${producto.nombre}</h2>
-      <p>quantity: ${producto.cantidad}</p>
-      <p>Precio: $${producto.precio}</p>
-      <button onclick="addToCart('${producto.nombre}', ${producto.precio}, '${producto.inputId}')">Agregar al Carrito</button>
-    </div>
-  `;
-    // Agrega el HTML del producto al contenedor
-    productoContainer.innerHTML += productoHTML;
-
-    
-} */
 
 // Función para agregar un producto al carrito. Verificamos talla y stock
 function addToCart(productName, tallaSelectID, price, inputId) {
@@ -144,7 +127,7 @@ function updateCart() {
     // Limpia el contenido actual del carrito
     let total = 0;
     // Inicializa el total del carrito
-    carrito.forEach(item => {
+    carrito.forEach((item , index) => {
         // Itera sobre los productos en el carrito
         let subtotal = item.price * item.quantity;
         // Calcula el subtotal del producto
@@ -158,6 +141,7 @@ function updateCart() {
                         <td>${item.price.toFixed(2)} €</td>
                         <td>${item.quantity}</td>
                         <td>${subtotal.toFixed(2)} €</td>
+                        <td><button onclick="removeFromCart(${index})">Eliminar</button></td>
                     </tr>
                 `;
         // Agrega una fila para mostrar el producto en el carrito
@@ -165,10 +149,7 @@ function updateCart() {
     cartTotal.innerHTML = 'Total: €' + total.toFixed(2)
     console.log(total)
 
-    function removeFromCart(index) {
-        carrito.splice(index, 1);
-        updateCart();
-    }
+    
 
 }
     
@@ -209,3 +190,12 @@ function updateProductQuantity(inputId) {
         window.location.href = "landing_page.html"; // Cambia "landing_page.html" con tu URL de la landing page
     });
 }); */
+
+
+// Función para eliminar un producto del carrito
+function removeFromCart(index) {
+    // Elimina el producto del carrito en la posición del índice especificado
+    carrito.splice(index, 1);
+    // Actualiza el carrito después de eliminar el producto
+    updateCart();
+}
