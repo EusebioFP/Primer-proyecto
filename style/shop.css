@@ -47,11 +47,26 @@ body {
 }
 
 .product {
-    width: 200px;
+    width: 350px;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
     text-align: center;
+    font-size: 18px;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product button,
+.product select {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    margin: 0 auto;
 }
 
 .cart {

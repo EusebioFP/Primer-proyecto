@@ -3,35 +3,64 @@
 //este seria el modelo de producto, podremos copiar pegar para crear mas 
 // Objeto del producto 1
 let producto1 = {
-    nombre: 'Producto 1',
+    nombre: 'ACCES WS EXC',
     precio: 20,
-    cantidad: 1,
-    inputId: 'quantity1'
+    cantidad: 10,
+    inputId: 'quantity1',
+    talla: { 'S': 4, 'M': 3, 'L': 3 }
+
 };
 
 // Objeto del producto 2
 let producto2 = {
-    nombre: 'Producto 2',
+    nombre: 'REACTION PRO',
     precio: 15,
-    cantidad: 1,
-    inputId: 'quantity2'
+    cantidad: 20,
+    inputId: 'quantity2',
+    talla: {'S': 6, 'M': 8, 'L': 6}
+
 };
 
 // Objeto del producto 3
 let producto3 = {
-    nombre: 'Producto 3',
+    nombre: 'REACTION HYBRID RACE',
     precio: 25,
-    cantidad: 1,
-    inputId: 'quantity3'
+    cantidad: 10,
+    inputId: 'quantity3',
+    talla: {'S': 3, 'M': 3, 'L': 4}
+
 };
 
 // Objeto del producto 4
 let producto4 = {
-    nombre: 'Producto 4',
+    nombre: 'STEREO HYBRID 160 HPC RACE',
     precio: 30,
-    cantidad: 1,
-    inputId: 'quantity4'
+    cantidad: 15,
+    inputId: 'quantity4',
+    talla: {'S': 8, 'M': 4, 'L': 3}
+
 };
+
+// Objeto del producto 5
+let producto5 = {
+    nombre: 'AXIAL WS',
+    precio: 15,
+    cantidad: 8,
+    inputId: 'quantity5',
+    talla: {'S': 5, 'M': 5, 'L': 5}
+
+};
+
+// Objeto del producto 6
+let producto6 = {
+    nombre: 'AGREE RACE',
+    precio: 35,
+    cantidad: 8,
+    inputId: 'quantity6',
+    talla: {'S': 0, 'M': 4, 'L': 4}
+
+};
+
 
 // Array para almacenar productos en el carrito
 let carrito = [];
@@ -55,18 +84,51 @@ let carrito = [];
     
 } */
 
-
-// Función para agregar un producto al carrito
-function addToCart(productName, price, inputId) {
+// Función para agregar un producto al carrito. Verificamos talla y stock
+function addToCart(productName, tallaSelectID, price, inputId) {
     let quantity = parseInt(document.getElementById(inputId).value);
+    let tallaSelect = document.getElementById(tallaSelectID);
+    let tallaSelected = tallaSelect.options[tallaSelect.selectedIndex].value;
+   
     // Obtiene la cantidad del input
     if (quantity <= 0) {
         // Verifica si la cantidad es válida
         alert("La cantidad debe ser mayor que cero.");   
         return;
-    } 
-        
-    carrito.push({ name: productName, price: price, quantity: quantity });
+    }
+        let productObject;
+        switch (productName) {
+            case 'ACCES WS EXC':
+                productObject = producto1;
+                break;
+            case 'REACTION PRO':
+                productObject = producto2;
+                break;
+            case 'REACTION HYBRID RACE':
+                productObject = producto3;
+                break;
+            case 'STEREO HYBRID 160 HPC RACE':
+                productObject = producto4;
+                break;
+            case 'AXIAL WS':
+                productObject = producto5;
+                break;
+            case 'AGREE RACE':
+                productObject = producto6;
+                break;
+            default:
+                alert('Producto no encontrado');
+                return;
+        }
+
+        if (quantity > productObject.talla[tallaSelected]) {
+            alert('No hay suficiente stock disponible para la talla seleccionada.');
+            return;
+        }
+
+    productObject.talla[tallaSelected] -= quantity;
+
+    carrito.push({ name: productName, talla: tallaSelected, price: price, quantity: quantity });
     // Agrega el producto al carrito
     updateCart();
     // Actualiza el carrito
@@ -90,28 +152,27 @@ function updateCart() {
         
         // Actualiza el total del carrito
         cartItems.innerHTML += `
-        
                     <tr>
                         <td>${item.name}</td>
-                        <td>$${item.price.toFixed(2)}</td>
+                        <td>${item.talla}</td>
+                        <td>${item.price.toFixed(2)} €</td>
                         <td>${item.quantity}</td>
-                        <td>$${subtotal.toFixed(2)}</td>
-                    
-                        
+                        <td>${subtotal.toFixed(2)} €</td>
                     </tr>
-                   
-
-                    
                 `;
         // Agrega una fila para mostrar el producto en el carrito
     });
-    cartTotal.innerHTML = total.toFixed(2)
-
+    cartTotal.innerHTML = 'Total: €' + total.toFixed(2)
     console.log(total)
-    
 
-    // Actualiza el total del carrito en la página
+    function removeFromCart(index) {
+        carrito.splice(index, 1);
+        updateCart();
+    }
+
 }
+    
+    // Actualiza el total del carrito en la página
 
 // Función para actualizar la cantidad restante del producto
 // Esta función toma como argumento el ID del input donde se ingresa la cantidad del producto.
@@ -123,7 +184,6 @@ function updateProductQuantity(inputId) {
         quantityInput.value = remainingQuantity;
     }
 }
-
 // Función para actualizar la interfaz de usuario
 /* function actualizarInterfaz() {
     let numProductosEnCarrito = carrito.length;
