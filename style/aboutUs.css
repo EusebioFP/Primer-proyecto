@@ -1,0 +1,40 @@
+body {
+    background-image: url(../assets/151198086-confeti-dorado-brillante-dorado-sobre-fondo-negro-representación-3d.jpg);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+header {
+    background-image: url(../assets/orizontal_2.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    align-items: center;
+}
+
+#text {
+    color: #000;
+    text-align: left;
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #ffee58;
+}
+
+#subtitle {
+    color: #ffee58;
+}
+
+footer {
+    background-color: #ffee58;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}

@@ -1,0 +1,101 @@
+body {
+    background-image: url(assets/fondo-minimalista-negro-minimalist-background-fondo-sitio-web-minimalista-fondo-negro-web.webp);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.container {
+
+    color: #ffee58;
+    margin: 20px auto;
+    padding: 0 20px;
+    max-width: 800px;
+}
+
+.container h2 {
+
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+header {
+    background-image: url(/assets/orizontal_2.jpg);
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    background-color: #ffee58;
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.logo img {
+    max-width: 100px;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 11px;
+
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.photo.large {
+    margin-bottom: 20px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.photo p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    background-color: #ffee58;
+    padding: 10px;
+    color: #000;
+    margin-top: 20px;
+}
+
+#portada {
+    width: 90vw
+}
