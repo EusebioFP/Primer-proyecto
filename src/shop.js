@@ -53,6 +53,39 @@ let producto6 = {
 
 };
 
+function actualizarTallasDisponibles(producto) {
+    let tallasDisponiblesElement = document.getElementById(`tallasDisponibles${producto.inputId.slice(-1)}`);
+    tallasDisponiblesElement.innerHTML = "Tallas disponibles: ";
+
+    for (let talla in producto.talla) {
+        if (producto.talla.hasOwnProperty(talla) && producto.talla[talla] > 0) {
+            tallasDisponiblesElement.innerHTML += `${talla} (${producto.talla[talla]}), `;
+        }
+    }
+}
+
+window.onload = function () {
+    console.log("La página se ha cargado completamente."); // Verificar si el evento onload se está activando correctamente
+
+    mostrarProducto(producto1);
+    actualizarTallasDisponibles(producto1);
+
+    mostrarProducto(producto2);
+    actualizarTallasDisponibles(producto2);
+
+    mostrarProducto(producto3);
+    actualizarTallasDisponibles(producto3);
+
+    mostrarProducto(producto4);
+    actualizarTallasDisponibles(producto4);
+
+    mostrarProducto(producto5);
+    actualizarTallasDisponibles(producto5);
+
+    mostrarProducto(producto6);
+    actualizarTallasDisponibles(producto6);
+};
+
 // Array para almacenar productos en el carrito
 let carrito = [];
 
