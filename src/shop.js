@@ -1,42 +1,44 @@
-
 let producto1 = {
+    id: 1,
     nombre: 'ACCES WS EXC',
+    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
     precio: 20,
     cantidad: 10,
-    inputId: 'quantity1',
     talla: { 'S': 4, 'M': 3, 'L': 3 }
-
 };
 
 let producto2 = {
+    id: 2,
     nombre: 'REACTION PRO',
+    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
     precio: 15,
     cantidad: 20,
-    inputId: 'quantity2',
     talla: {'S': 6, 'M': 8, 'L': 6}
-
 };
 
 let producto3 = {
+    id: 3,
     nombre: 'REACTION HYBRID RACE',
+    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
     precio: 25,
     cantidad: 10,
-    inputId: 'quantity3',
     talla: {'S': 3, 'M': 3, 'L': 4}
 
 };
 
 let producto4 = {
+    id: 4,
     nombre: 'STEREO HYBRID 160 HPC RACE',
+    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
     precio: 30,
     cantidad: 15,
-    inputId: 'quantity4',
     talla: {'S': 8, 'M': 4, 'L': 3}
-
 };
 
 let producto5 = {
+    id: 5,
     nombre: 'AXIAL WS',
+    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
     precio: 15,
     cantidad: 8,
     inputId: 'quantity5',
@@ -45,16 +47,26 @@ let producto5 = {
 };
 
 let producto6 = {
+    id: 6,
     nombre: 'AGREE RACE',
+    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
     precio: 35,
     cantidad: 8,
     inputId: 'quantity6',
     talla: {'S': 0, 'M': 4, 'L': 4}
-
 };
 
+const productos = [
+    producto1,
+    producto2,
+    producto3,
+    producto4,
+    producto5,
+    producto6,
+];
+
 function actualizarTallasDisponibles(producto) {
-    let tallasDisponiblesElement = document.getElementById(`tallasDisponibles${producto.inputId.slice(-1)}`);
+    let tallasDisponiblesElement = document.getElementById(`tallasDisponibles${producto.id}`);
     tallasDisponiblesElement.innerHTML = "Tallas disponibles: ";
 
     for (let talla in producto.talla) {
@@ -65,26 +77,66 @@ function actualizarTallasDisponibles(producto) {
 }
 
 window.onload = function () {
-    console.log("La página se ha cargado completamente."); // Verificar si el evento onload se está activando correctamente
-
-    mostrarProducto(producto1);
-    actualizarTallasDisponibles(producto1);
-
-    mostrarProducto(producto2);
-    actualizarTallasDisponibles(producto2);
-
-    mostrarProducto(producto3);
-    actualizarTallasDisponibles(producto3);
-
-    mostrarProducto(producto4);
-    actualizarTallasDisponibles(producto4);
-
-    mostrarProducto(producto5);
-    actualizarTallasDisponibles(producto5);
-
-    mostrarProducto(producto6);
-    actualizarTallasDisponibles(producto6);
+    productos.forEach(producto => {
+        mostrarProducto(producto);
+        // actualizarTallasDisponibles(producto);
+    })
 };
+
+// {
+//     nombre: string;
+//     image: string;
+//     precio: number;
+//     cantidad: number;
+//     inputId: string;
+//     talla: { S: number; M: number; L: number}
+// }
+function mostrarProducto(producto) {
+    const catalog = document.getElementsByClassName("catalog")[0];
+
+    const htmlProducto = `
+        <div class="product">
+            <h3>${producto.nombre}</h3>
+            <img src="${producto.image}" alt="">
+            <p>Precio: €${producto.precio}</p>
+            <div id="cantidad3">
+                <label for="quantity">Cantidad:</label>
+                <input type="number" id="quantity${producto.id}" name="quantity" value="1"> <br>
+                <label for="tallaSelect${producto.id}">Talla:</label>
+                <select id="tallaSelect${producto.id}">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                </select>
+            <button onclick="addToCart('${producto.nombre}', 'tallaSelect${producto.id}', ${producto.precio}, 'quantity${producto.id}')">Agregar al Carrito</button>
+            </div>
+            <div id="tallasDisponibles${producto.id}">
+                
+            </div>
+        </div>
+    `;
+
+    catalog.innerHTML += htmlProducto;
+
+    muestraTallasDisponibles(producto);
+}
+
+function muestraTallasDisponibles(producto) {
+    const tallasContenedor = document.getElementById(`tallasDisponibles${producto.id}`)
+
+    tallasContenedor.innerHTML = `
+    <table>
+        <thead>
+            <tr><td>Talla</td> <td>Cantidad</td></tr>
+        </thead>
+        <tbody>
+            <tr><td>S</td> <td>${producto.talla.S}</td> </tr>
+            <tr><td>M</td> <td>${producto.talla.M}</td> </tr>
+            <tr><td>L</td> <td>${producto.talla.L}</td> </tr>
+        </tbody>
+    </table>
+    `;
+}
 
 // Array para almacenar productos en el carrito
 let carrito = [];
@@ -102,29 +154,12 @@ function addToCart(productName, tallaSelectID, price, inputId) {
         alert("La cantidad debe ser mayor que cero.");   
         return;
     }
-        let productObject;
-        switch (productName) {
-            case 'ACCES WS EXC':
-                productObject = producto1;
-                break;
-            case 'REACTION PRO':
-                productObject = producto2;
-                break;
-            case 'REACTION HYBRID RACE':
-                productObject = producto3;
-                break;
-            case 'STEREO HYBRID 160 HPC RACE':
-                productObject = producto4;
-                break;
-            case 'AXIAL WS':
-                productObject = producto5;
-                break;
-            case 'AGREE RACE':
-                productObject = producto6;
-                break;
-            default:
-                alert('Producto no encontrado');
-                return;
+
+        const productObject = productos.find((producto) => {return producto.nombre === productName});
+
+        if (!productObject){
+            alert('Producto no encontrado');
+            return; 
         }
 
         if (quantity > productObject.talla[tallaSelected]) {
@@ -134,11 +169,11 @@ function addToCart(productName, tallaSelectID, price, inputId) {
 
     productObject.talla[tallaSelected] -= quantity;
 
-    carrito.push({ name: productName, talla: tallaSelected, price: price, quantity: quantity });
+    carrito.push({ name: productName, talla: tallaSelected, price: price, quantity: quantity, id: productObject.id });
     // Agrega el producto al carrito
     updateCart();
     // Actualiza el carrito
-    updateProductQuantity(inputId);
+    muestraTallasDisponibles(productObject);
     
 }
 // Función para actualizar el carrito
@@ -152,6 +187,8 @@ function updateCart() {
 
 
     carrito.forEach((item, index) => {
+        console.log(item)
+
         // Itera sobre los productos en el carrito
         let subtotal = item.price * item.quantity;
         // Calcula el subtotal del producto
@@ -167,7 +204,7 @@ function updateCart() {
                 <td>${item.price.toFixed(2)} €</td>
                 <td id="${cantidadId}">${item.quantity}</td>
                 <td>${subtotal.toFixed(2)} €</td>
-                <td><button onclick="removeFromCart(${index})">Eliminar</button></td>
+                <td><button onclick="removeFromCart(${index}, ${item.id}, '${item.talla}')">Eliminar</button></td>
             </tr>`
             ;
     });
@@ -216,7 +253,11 @@ function updateProductQuantity(inputId) {
 
 
 // Función para eliminar un producto del carrito
-    function removeFromCart(index) {
+    function removeFromCart(index, productoId, tallaSelected) {
+        const productObject = productos.find((producto) => {return producto.id === productoId});
+        productObject.talla[tallaSelected]++;
+        muestraTallasDisponibles(productObject);
+
         carrito[index].quantity--;
 
         let cantidadId = `cantidad${index}`;
