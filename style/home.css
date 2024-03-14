@@ -32,10 +32,14 @@ header {
     background-position: center;
     flex-direction: column;
     padding: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+    color: #000;
+    text-align: left;
 }
 
 .logo img {
-    max-width: 100px;
+    max-width: 200px;
     height: auto;
 }
 
@@ -63,7 +67,7 @@ nav ul li:last-child {
 nav ul li a {
     color: #000;
     text-decoration: none;
-    font-size: 11px;
+    font-size: 15px;
 
 }
 

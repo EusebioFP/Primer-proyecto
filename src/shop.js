@@ -1,7 +1,4 @@
 
-
-//este seria el modelo de producto, podremos copiar pegar para crear mas 
-// Objeto del producto 1
 let producto1 = {
     nombre: 'ACCES WS EXC',
     precio: 20,
@@ -11,7 +8,6 @@ let producto1 = {
 
 };
 
-// Objeto del producto 2
 let producto2 = {
     nombre: 'REACTION PRO',
     precio: 15,
@@ -21,7 +17,6 @@ let producto2 = {
 
 };
 
-// Objeto del producto 3
 let producto3 = {
     nombre: 'REACTION HYBRID RACE',
     precio: 25,
@@ -31,7 +26,6 @@ let producto3 = {
 
 };
 
-// Objeto del producto 4
 let producto4 = {
     nombre: 'STEREO HYBRID 160 HPC RACE',
     precio: 30,
@@ -41,7 +35,6 @@ let producto4 = {
 
 };
 
-// Objeto del producto 5
 let producto5 = {
     nombre: 'AXIAL WS',
     precio: 15,
@@ -51,7 +44,6 @@ let producto5 = {
 
 };
 
-// Objeto del producto 6
 let producto6 = {
     nombre: 'AGREE RACE',
     precio: 35,
@@ -61,11 +53,8 @@ let producto6 = {
 
 };
 
-
 // Array para almacenar productos en el carrito
 let carrito = [];
-
-
 
 // Función para agregar un producto al carrito. Verificamos talla y stock
 function addToCart(productName, tallaSelectID, price, inputId) {

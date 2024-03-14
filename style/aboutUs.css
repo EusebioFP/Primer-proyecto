@@ -1,6 +1,12 @@
 body {
-    background-image: url(../assets/151198086-confeti-dorado-brillante-dorado-sobre-fondo-negro-representación-3d.jpg);
-    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url(../assets/WhatsApp\ Image\ 2024-03-11\ at\ 19.22.48.jpeg
+    );
+    background-size: cover;
     margin: 0;
     padding: 0;
     background-color: #000;
@@ -10,31 +16,73 @@ header {
     background-image: url(../assets/orizontal_2.jpg);
     background-size: cover;
     background-position: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     padding: 20px;
     align-items: center;
-}
-
-#text {
     color: #000;
     text-align: left;
 }
 
+.logo img {
+    max-width: 200px;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}   
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 15px;
+
+}
+
 section {
-    padding: 20px;
-    margin-bottom: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: #ffee58;
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.subtitle {
     color: #ffee58;
 }
 
-#subtitle {
-    color: #ffee58;
+#fin {
+        color:#ffee58;
+        padding: 30px;
+        text-align: center;
+        font-size: 20px;
 }
 
 footer {
     background-color: #ffee58;
     padding: 20px;
     text-align: center;
-}
-
-footer p {
-    margin: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0;
 }
