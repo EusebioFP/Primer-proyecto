@@ -56,6 +56,7 @@ let producto6 = {
 // Array para almacenar productos en el carrito
 let carrito = [];
 
+
 // Función para agregar un producto al carrito. Verificamos talla y stock
 function addToCart(productName, tallaSelectID, price, inputId) {
     let quantity = parseInt(document.getElementById(inputId).value);
