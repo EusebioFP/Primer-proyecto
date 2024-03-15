@@ -1,6 +1,7 @@
 body {
-    background-image: url(assets/fondo-minimalista-negro-minimalist-background-fondo-sitio-web-minimalista-fondo-negro-web.webp);
-    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom, #ffee58 0%, #ffee58 40%, #000 40%, #000 100%), url(../assets/WhatsApp\ Image\ 2024-03-11\ at\ 19.22.48.jpeg);    
+    background-image: url(../assets/WhatsApp\ Image\ 2024-03-11\ at\ 19.22.48.jpeg);
+    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
     background-color: #000;
@@ -20,6 +21,7 @@ body {
     text-align: center;
     font-size: 32px;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 header {
@@ -31,15 +33,16 @@ header {
     background-size: cover;
     background-position: center;
     flex-direction: column;
-    padding: 20px;
+    padding: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    padding: 20px;
+    font-size: large;
     color: #000;
     text-align: left;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .logo img {
-    max-width: 200px;
+    max-width: 280px;
     height: auto;
 }
 
@@ -67,8 +70,12 @@ nav ul li:last-child {
 nav ul li a {
     color: #000;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 20px;
 
+}
+
+nav ul li a:hover {
+    background-color: #ffee58;
 }
 
 .photos {
@@ -89,7 +96,9 @@ nav ul li a {
 
 .photo p {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 footer {
@@ -101,5 +110,5 @@ footer {
 }
 
 #portada {
-    width: 90vw
+    width: 50vw
 }

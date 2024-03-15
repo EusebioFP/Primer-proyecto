@@ -1,5 +1,5 @@
 body {
-    background-image: url(assets/fondo-minimalista-negro-minimalist-background-fondo-sitio-web-minimalista-fondo-negro-web.webp);
+    background-image: url(../assets/WhatsApp\ Image\ 2024-03-11\ at\ 19.22.48.jpeg);
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
@@ -109,15 +109,14 @@ button[type="submit"]:hover {
 }
 
 footer {
-    background-image: url(/assets/fondo-minimalista-negro-minimalist-background-fondo-sitio-web-minimalista-fondo-negro-web.webp);
-        display: flex;
-            justify-content: space-between;
-            align-items: start;
-            background-color: #ffee58;
-            background-size: cover;
-            background-position: center center;
-            flex-direction: column;
-            padding: 20px;
+    background-color: #ffee58;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0;
             
 }
 #portada {
