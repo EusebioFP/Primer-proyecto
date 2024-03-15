@@ -26,7 +26,6 @@
     <div class="container">
     <h1>Bicicletas</h1>
     <div class="catalog">
-        
     </div>
         <h1>Carrito de Compra</h1>
         <table class="cart" >
@@ -45,5 +44,15 @@
             </tfoot>
         </table>
         <div colspan="3" class="total" id="totalcarrito">Total</div>
+        <button class="btnComprar" onclick="realizarCompra()">Comprar</button>
+        <script>
+            function realizarCompra() {
+                if (carrito.length === 0) {
+                    alert("No tienes productos en el carrito. Por favor, añade productos antes de realizar la compra.");
+                } else {
+                    alert("¡Compra realizada con éxito!");
+                }
+            }
+        </script>
 </body>
 </html>

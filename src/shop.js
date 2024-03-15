@@ -28,7 +28,7 @@ let producto3 = {
 
 let producto4 = {
     id: 4,
-    nombre: 'STEREO HYBRID 160 HPC RACE',
+    nombre: 'STEREO HYBRID 160 HPC',
     image: '../assets/REACTION_HYBRID_RACE_750.jpg',
     precio: 30,
     cantidad: 15,
@@ -79,18 +79,9 @@ function actualizarTallasDisponibles(producto) {
 window.onload = function () {
     productos.forEach(producto => {
         mostrarProducto(producto);
-        // actualizarTallasDisponibles(producto);
     })
 };
 
-// {
-//     nombre: string;
-//     image: string;
-//     precio: number;
-//     cantidad: number;
-//     inputId: string;
-//     talla: { S: number; M: number; L: number}
-// }
 function mostrarProducto(producto) {
     const catalog = document.getElementsByClassName("catalog")[0];
 
@@ -108,10 +99,9 @@ function mostrarProducto(producto) {
                     <option value="M">M</option>
                     <option value="L">L</option>
                 </select>
-            <button onclick="addToCart('${producto.nombre}', 'tallaSelect${producto.id}', ${producto.precio}, 'quantity${producto.id}')">Agregar al Carrito</button>
+            <button onclick="addToCart('${producto.nombre}', 'tallaSelect${producto.id}', ${producto.precio}, 'quantity${producto.id}')">Añadir</button>
             </div>
             <div id="tallasDisponibles${producto.id}">
-                
             </div>
         </div>
     `;
@@ -123,7 +113,6 @@ function mostrarProducto(producto) {
 
 function muestraTallasDisponibles(producto) {
     const tallasContenedor = document.getElementById(`tallasDisponibles${producto.id}`)
-
     tallasContenedor.innerHTML = `
     <table>
         <thead>
@@ -138,19 +127,15 @@ function muestraTallasDisponibles(producto) {
     `;
 }
 
-// Array para almacenar productos en el carrito
 let carrito = [];
 
 
-// Función para agregar un producto al carrito. Verificamos talla y stock
 function addToCart(productName, tallaSelectID, price, inputId) {
     let quantity = parseInt(document.getElementById(inputId).value);
     let tallaSelect = document.getElementById(tallaSelectID);
     let tallaSelected = tallaSelect.options[tallaSelect.selectedIndex].value;
    
-    // Obtiene la cantidad del input
     if (quantity <= 0) {
-        // Verifica si la cantidad es válida
         alert("La cantidad debe ser mayor que cero.");   
         return;
     }
@@ -170,33 +155,25 @@ function addToCart(productName, tallaSelectID, price, inputId) {
     productObject.talla[tallaSelected] -= quantity;
 
     carrito.push({ name: productName, talla: tallaSelected, price: price, quantity: quantity, id: productObject.id });
-    // Agrega el producto al carrito
     updateCart();
-    // Actualiza el carrito
     muestraTallasDisponibles(productObject);
     
 }
-// Función para actualizar el carrito
 function updateCart() {
     let cartItems = document.getElementById("cart");
     let cartTotal = document.getElementById("totalcarrito");
-    // Selecciona el elemento donde se mostrarán los productos en el carrito
     cartItems.innerHTML = "";
-    // Limpia el contenido actual del carrito
     let total = 0;
 
 
     carrito.forEach((item, index) => {
         console.log(item)
 
-        // Itera sobre los productos en el carrito
         let subtotal = item.price * item.quantity;
-        // Calcula el subtotal del producto
         total += subtotal;
 
         let cantidadId = `cantidad${index}`;
 
-        // Actualiza el total del carrito
         cartItems.innerHTML +=
             `<tr>
                 <td>${item.name}</td>
@@ -213,10 +190,6 @@ function updateCart() {
     console.log(total);
 }
     
-    // Actualiza el total del carrito en la página
-
-// Función para actualizar la cantidad restante del producto
-// Esta función toma como argumento el ID del input donde se ingresa la cantidad del producto.
 function updateProductQuantity(inputId) {
     let quantityInput = document.getElementById(inputId);
     let remainingQuantity = parseInt(quantityInput.value);
@@ -225,34 +198,6 @@ function updateProductQuantity(inputId) {
         quantityInput.value = remainingQuantity;
     }
 }
-// Función para actualizar la interfaz de usuario
-/* function actualizarInterfaz() {
-    let numProductosEnCarrito = carrito.length;
-    let carritoElement = document.getElementById('total'); */
-
-    // Actualizar la visualización del carrito
-/*     carritoElement.textContent = `cart (${numProductosEnCarrito})`;
-} */
-
-// Llama a la función para mostrar el producto cuando se cargue la página
-/* window.onload = function () {
-    mostrarProducto(producto1);
-    mostrarProducto(producto2);
-    mostrarProducto(producto3);
-    mostrarProducto(producto4);
-};
- */
-
-//funcion para que el boton home te lleve de nuevo a la landing page
-/* document.addEventListener("DOMContentLoaded", function () {
-    // Código que interactúa con los elementos del DOM
-    document.getElementById("button-home").addEventListener("click", function () {
-        window.location.href = "landing_page.html"; // Cambia "landing_page.html" con tu URL de la landing page
-    });
-}); */
-
-
-// Función para eliminar un producto del carrito
     function removeFromCart(index, productoId, tallaSelected) {
         const productObject = productos.find((producto) => {return producto.id === productoId});
         productObject.talla[tallaSelected]++;
@@ -270,6 +215,4 @@ function updateProductQuantity(inputId) {
 
         updateCart();
     }
-    // Elimina el producto del carrito en la posición del índice especificado
-/*     carrito.splice(index, 1);
- */    // Actualiza el carrito después de eliminar el producto
+ 

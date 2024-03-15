@@ -1,6 +1,7 @@
 body {
+    background: linear-gradient(to bottom, #ffee58 0%, #ffee58 40%, #000 40%, #000 100%);
     background-image: url(../assets/WhatsApp\ Image\ 2024-03-11\ at\ 19.22.48.jpeg);
-    font-family: 'Montserrat', sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
     background-color: #000;
@@ -8,22 +9,21 @@ body {
 }
 
 .container {
-
     color: #ffee58;
-    margin: 20px auto;
+    margin: 150px auto;
     padding: 0 20px;
     max-width: 800px;
-}
+    text-shadow: 2px 2px 4px rgba(206, 196, 17, 0.766);
+    }
 
 .container h2 {
-
     text-align: center;
     font-size: 32px;
     margin-bottom: 20px;
-}
+    text-shadow: 2px 2px 4px rgba(206, 196, 17, 0.766);}
 
 header {
-    background-image: url(/assets/ciclismo-solo_equipo-1.jpg);
+    background-image: url(../assets/orizontal_2.jpg);
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -32,10 +32,15 @@ header {
     background-position: center center;
     flex-direction: column;
     padding: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    color: #000;
+    text-align: left;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .logo img {
-    max-width: 100px;
+    max-width: 280px;
     height: auto;
 }
 
@@ -61,14 +66,14 @@ nav ul li:last-child {
 }
 
 nav ul li a {
-    color: #ffee58;
+    color:#000;
     text-decoration: none;
-    font-size: 11px;
-
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 nav ul li a:hover {
-    background-color: #1d034b;
-    /* Cambia el color al pasar el cursor */
+    background-color:#ffee58
 }
 
 form {
@@ -86,39 +91,42 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+width: 100%;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-sizing: border-box;
 }
 
 button[type="submit"] {
-    background-color: #000;
-    color: #ffee58;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+background-color: #000;
+color: #ffee58;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 button[type="submit"]:hover {
-    background-color: #333;
+background-color: #333;
 }
 
 footer {
-    background-color: #ffee58;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin-bottom: 0;
-            
+background-color: #ffee58;
+color: #000;
+padding: 20px;
+text-align: center;
+margin-top: 20px;
+width: 100%;
+position: fixed;
+bottom: 0;
+left: 0;
+margin-bottom: 0;
 }
+
 #portada {
     width: 90vw
 }

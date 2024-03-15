@@ -20,7 +20,7 @@ body {
     flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: large;
-    padding: 30px;
+    padding: 20px;
     color: #000;
     text-align: left;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -32,6 +32,7 @@ body {
     padding: 0 20px;
     max-width: 800px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 4px rgba(206, 196, 17, 0.766);
 }
 
 .logo img {
@@ -74,14 +75,14 @@ nav ul li a:hover {
 .catalog {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .product {
-    width: 340px;
+    width: 350px;
     border: 1px solid #ccc;
     padding: 10px;
-    margin: 10px;
+    margin: 0px;
     text-align: center;
     font-size: 18px;
 }
@@ -93,11 +94,9 @@ nav ul li a:hover {
 
 .product button,
 .product select {
-    display: block;
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 18px;
-    margin: 0 auto;
 }
 
 .cart {
@@ -139,6 +138,8 @@ nav ul li a:hover {
     text-align: center;
     font-weight: bold;
     font-size: x-large;
+    display: inline-block;
+    margin-right: 20px;
 }
 
 .cart tfoot td:last-child {
@@ -161,4 +162,49 @@ tfoot td {
     font-weight: bold;
     background-color: #000;
     color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+thead tr {
+    text-align: center;
+    color: #000;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: #000;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.btnComprar {
+    font-weight: bold;
+    font-size: x-large;
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 68px;
+}
+
+.btnComprar:hover {
+    background-color: #333;
 }

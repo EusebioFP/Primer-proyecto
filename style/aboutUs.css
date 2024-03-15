@@ -3,8 +3,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    background-image: url(../assets/);
-    background-size: cover;
+    background-image: url(../assets/WhatsApp\ Image\ 2024-03-11\ at\ 19.22.48.jpeg);
     margin: 0;
     padding: 0;
     background-color: #000;
@@ -15,6 +14,7 @@ header {
     background-size: cover;
     background-position: center;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
     padding: 20px;
     align-items: center;
     color: #000;
@@ -22,8 +22,12 @@ header {
 }
 
 .logo img {
-    max-width: 200px;
+    max-width: 280px;
     height: auto;
+}
+
+#title {
+    background: linear-gradient(to bottom, #ffee58 0%, #ffee58 40%, #000 40%, #000 100%), url(../assets/WhatsApp\ Image\ 2024-03-11\ at\ 19.22.48.jpeg);
 }
 
 nav {
@@ -50,8 +54,12 @@ nav ul li:last-child {
 nav ul li a {
     color: #000;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 20px;
 
+}
+
+nav ul li a:hover {
+    background-color: #ffee58;
 }
 
 section {
@@ -86,6 +94,8 @@ footer {
     background-color: #ffee58;
     padding: 20px;
     text-align: center;
+    color: #000;
+    margin-top: 20px;
     width: 100%;
     position: fixed;
     bottom: 0;
