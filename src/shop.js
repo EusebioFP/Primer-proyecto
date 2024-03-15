@@ -1,7 +1,7 @@
 let producto1 = {
     id: 1,
     nombre: 'ACCES WS EXC',
-    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
+    image: '../assets/ACCES_WS_EXC.jpg',
     precio: 525.90,
     cantidad: 10,
     talla: { 'S': 4, 'M': 3, 'L': 3 }
@@ -10,7 +10,7 @@ let producto1 = {
 let producto2 = {
     id: 2,
     nombre: 'REACTION PRO',
-    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
+    image: '../assets/REACTION_PRO.jpg',
     precio: 615.50,
     cantidad: 20,
     talla: {'S': 6, 'M': 8, 'L': 6}
@@ -29,7 +29,7 @@ let producto3 = {
 let producto4 = {
     id: 4,
     nombre: 'STEREO HYBRID 160 HPC',
-    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
+    image: '../assets/STEREO_HYBRID_160_HPC_RACE.jpg',
     precio: 630.90,
     cantidad: 15,
     talla: {'S': 8, 'M': 4, 'L': 3}
@@ -38,7 +38,7 @@ let producto4 = {
 let producto5 = {
     id: 5,
     nombre: 'AXIAL WS',
-    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
+    image: '../assets/AXIAL_WS.jpg',
     precio: 715.90,
     cantidad: 8,
     inputId: 'quantity5',
@@ -49,7 +49,7 @@ let producto5 = {
 let producto6 = {
     id: 6,
     nombre: 'AGREE RACE',
-    image: '../assets/REACTION_HYBRID_RACE_750.jpg',
+    image: '../assets/AGREE_RACE.jpg',
     precio: 735.5,
     cantidad: 8,
     inputId: 'quantity6',
